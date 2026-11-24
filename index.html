@@ -1,193 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Practical workflow automation and AI solutions for industrial businesses.">
-  <title>Industrial Operations Automation | Practical AI for Industry</title>
-  <style>
-    :root {
-      --navy: #14283f;
-      --blue: #2463a6;
-      --teal: #2a9d8f;
-      --ink: #263442;
-      --muted: #647384;
-      --pale: #f2f6fa;
-      --line: #dce4ec;
-      --white: #fff;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0; font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink); line-height: 1.6; background: var(--white);
-    }
-    a { color: inherit; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
-    header {
-      background: var(--white); border-bottom: 1px solid var(--line);
-      position: sticky; top: 0; z-index: 10;
-    }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { color: var(--navy); font-weight: 800; letter-spacing: .02em; text-decoration: none; }
-    .brand span { color: var(--teal); }
-    nav { display: flex; gap: 25px; align-items: center; }
-    nav a { text-decoration: none; color: var(--muted); font-size: .94rem; }
-    nav a:hover { color: var(--blue); }
-    .button {
-      display: inline-block; padding: 12px 19px; border-radius: 5px;
-      background: var(--teal); color: white; font-weight: 700; text-decoration: none;
-      border: 0; cursor: pointer;
-    }
-    .button:hover { background: #218579; }
-    .hero {
-      color: white; padding: 94px 0 88px;
-      background: linear-gradient(115deg, rgba(15,37,60,.97), rgba(28,67,99,.91));
-    }
-    .eyebrow { color: #82d6ca; text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 700; }
-    h1 { max-width: 790px; font-size: clamp(2.4rem, 5vw, 4.25rem); line-height: 1.08; margin: 17px 0 22px; letter-spacing: -.035em; }
-    .hero p { max-width: 680px; color: #dce7f0; font-size: 1.15rem; margin: 0 0 30px; }
-    .hero-note { margin-top: 20px; font-size: .9rem !important; color: #b9cbd9 !important; }
-    section { padding: 76px 0; }
-    .section-head { max-width: 720px; margin-bottom: 34px; }
-    h2 { color: var(--navy); font-size: clamp(1.8rem, 3vw, 2.55rem); line-height: 1.18; margin: 0 0 13px; letter-spacing: -.025em; }
-    .section-head p { color: var(--muted); margin: 0; font-size: 1.05rem; }
-    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .card { border: 1px solid var(--line); border-radius: 8px; padding: 25px; background: white; }
-    .card .num { color: var(--teal); font-size: .82rem; font-weight: 800; letter-spacing: .1em; }
-    h3 { color: var(--navy); margin: 9px 0 10px; font-size: 1.22rem; }
-    .card p { color: var(--muted); margin: 0; }
-    .band { background: var(--pale); }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: start; }
-    .checklist { list-style: none; padding: 0; margin: 20px 0 0; }
-    .checklist li { padding: 9px 0 9px 29px; position: relative; border-bottom: 1px solid var(--line); }
-    .checklist li:before { content: "✓"; color: var(--teal); font-weight: 800; position: absolute; left: 2px; }
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px; }
-    .step { border-top: 3px solid var(--teal); padding-top: 18px; }
-    .step strong { color: var(--navy); display: block; margin-bottom: 7px; font-size: 1.05rem; }
-    .step p { color: var(--muted); margin: 0; }
-    .cta { background: var(--navy); color: white; text-align: center; padding: 70px 0; }
-    .cta h2 { color: white; }
-    .cta p { color: #d1deea; max-width: 650px; margin: 0 auto 25px; }
-    footer { background: #0d1d2d; color: #b7c5d2; padding: 25px 0; font-size: .88rem; }
-    footer .foot { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-    @media (max-width: 720px) {
-      .nav { padding: 15px 0; align-items: flex-start; flex-direction: column; }
-      nav { flex-wrap: wrap; gap: 14px; }
-      .hero { padding: 68px 0; }
-      section { padding: 58px 0; }
-      .cards, .two-col, .steps { grid-template-columns: 1fr; }
-      .two-col { gap: 28px; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#">INDUSTRIAL <span>OPERATIONS</span></a>
-      <nav aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#about">About</a>
-        <a class="button" href="#contact">Discuss a project</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="eyebrow">Practical automation for industrial businesses</div>
-        <h1>Less administrative friction. More predictable operations.</h1>
-        <p>We help industrial businesses simplify the workflows behind service, quoting, maintenance, and operational knowledge — using practical automation and AI that fit the way your team already works.</p>
-        <a class="button" href="#contact">Start a conversation</a>
-        <p class="hero-note">Focused on useful improvements, clear scope, and solutions designed around your existing processes.</p>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow" style="color:var(--teal)">What we help improve</div>
-          <h2>Targeted solutions for everyday industrial workflows</h2>
-          <p>Start with a specific operational bottleneck. Improve the process before adding unnecessary technology.</p>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <div class="num">01 / SERVICE OPERATIONS</div>
-            <h3>Service Administration Automation</h3>
-            <p>Reduce repetitive coordination across service requests, customer updates, documentation, scheduling handoffs, and follow-up tasks.</p>
-          </article>
-          <article class="card">
-            <div class="num">02 / SALES SUPPORT</div>
-            <h3>RFQ &amp; Quotation Coordination</h3>
-            <p>Bring structure to incoming requests, information gathering, quote preparation handoffs, status tracking, and customer follow-up.</p>
-          </article>
-          <article class="card">
-            <div class="num">03 / MAINTENANCE</div>
-            <h3>Maintenance Work-Order Intelligence</h3>
-            <p>Make work-order information easier to capture, organize, review, and route so teams can spend less time chasing details.</p>
-          </article>
-          <article class="card">
-            <div class="num">04 / OPERATIONAL KNOWLEDGE</div>
-            <h3>Document Governance &amp; Facility-Specific Knowledge</h3>
-            <p>Make approved manuals, procedures, shift notes, and facility-specific revisions easier to find and use, with clear source references and safeguards.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="approach" class="band">
-      <div class="wrap two-col">
-        <div>
-          <div class="eyebrow" style="color:var(--teal)">A grounded approach</div>
-          <h2>Technology should support the process — not complicate it.</h2>
-          <p style="color:var(--muted)">We begin by understanding how work moves through your business. Then we identify where automation can reduce delays, manual effort, or information gaps without disrupting essential operations.</p>
-        </div>
-        <div>
-          <h3>What matters in every engagement</h3>
-          <ul class="checklist">
-            <li>A clearly defined business problem and outcome</li>
-            <li>Practical scope with agreed assumptions and boundaries</li>
-            <li>Use of existing systems where appropriate</li>
-            <li>Human review for important decisions and exceptions</li>
-            <li>Documentation, handover, and user training</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow" style="color:var(--teal)">How we work</div>
-          <h2>Small, measurable steps from problem to improvement</h2>
-          <p>No oversized transformation project required. Begin with one workflow, prove its value, and expand only when it makes sense.</p>
-        </div>
-        <div class="steps">
-          <div class="step"><strong>1. Understand</strong><p>Review the current workflow, systems, users, pain points, and desired outcome.</p></div>
-          <div class="step"><strong>2. Design &amp; implement</strong><p>Agree on a defined solution, test it with realistic scenarios, and address exceptions.</p></div>
-          <div class="step"><strong>3. Handover &amp; improve</strong><p>Document the solution, train users, and identify sensible next improvements.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta" id="contact">
-      <div class="wrap">
-        <div class="eyebrow">Let's talk about your workflow</div>
-        <h2>What is taking too much time in your operation?</h2>
-        <p>Tell us where requests get stuck, information is hard to find, or teams are relying on repetitive manual work. We can explore whether a focused automation project is a good fit.</p>
-        <!-- Replace the email address below with your business email before publishing. -->
-        <a class="button" href="mailto:YOUR_EMAIL@example.com?subject=Industrial%20automation%20enquiry">Email to discuss a project</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap foot">
-      <span>© 2026 Industrial Operations Automation</span>
-      <span>Practical workflow automation for industry</span>
-    </div>
-  </footer>
-</body>
-</html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Indurra Solutions is preparing practical AI and workflow automation solutions for industrial businesses.">
+<title>Indurra Solutions | Coming Soon</title>
+<style>
+:root{--navy:#14283f;--teal:#238d81;--muted:#667789;--line:#dce5ed}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:#253647;display:flex;flex-direction:column;background:#fff}
+.top{height:5px;background:linear-gradient(90deg,#42b7a6,#77cfc2)}
+header,footer .inner,.hero{width:min(1080px,calc(100% - 44px));margin:auto}
+header{padding:27px 0}.brand{font-weight:800;letter-spacing:.11em;color:var(--navy)}.brand span,h1 span{color:var(--teal)}
+main{flex:1;display:flex;align-items:center}.hero{padding:65px 0 85px;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+.eyebrow{color:var(--teal);text-transform:uppercase;letter-spacing:.15em;font-size:.76rem;font-weight:800}
+h1{font-size:clamp(2.7rem,6vw,5rem);letter-spacing:-.05em;line-height:1.03;color:var(--navy);margin:20px 0}
+.intro{font-size:1.14rem;line-height:1.75;color:var(--muted);margin:0 0 27px}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid #b8e3dc;background:#effaf7;color:#176f65;padding:10px 14px;font-size:.76rem;font-weight:800;letter-spacing:.12em;border-radius:4px}
+.dot{width:8px;height:8px;border-radius:50%;background:#42b7a6}
+.panel{background:var(--navy);color:#fff;border-radius:10px;padding:34px;box-shadow:0 22px 55px #14283f22}
+.panel-label{color:#80d5c9;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:1.55rem;line-height:1.25;margin:13px 0}.panel p{color:#d1deea;line-height:1.7;font-size:.94rem}
+.rule{height:1px;background:#ffffff2e;margin:24px 0}.focus{color:#e5eef5;font-size:.9rem;line-height:1.9}.focus strong{color:#fff}
+footer{border-top:1px solid var(--line);color:#8291a0;font-size:.82rem}.inner{padding:20px 0;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:35px;padding:48px 0 60px}.panel{padding:27px}h1{font-size:clamp(2.7rem,13vw,4.2rem)}.inner{flex-direction:column}}
+</style></head>
+<body><div class="top"></div>
+<header><div class="brand">INDURRA <span>SOLUTIONS</span></div></header>
+<main><section class="hero"><div>
+<div class="eyebrow">Industrial workflow automation &amp; practical AI</div>
+<h1>Better workflows.<br><span>Smarter operations.</span></h1>
+<p class="intro">Indurra Solutions is preparing practical automation and AI solutions to help industrial businesses simplify workflows, make operational knowledge easier to access, and reduce repetitive administrative work.</p>
+<div class="status"><span class="dot"></span> WEBSITE COMING SOON</div>
+</div><aside class="panel">
+<div class="panel-label">What we're focused on</div>
+<h2>Technology that works around the realities of industrial operations.</h2>
+<p>Our focus is on useful, clearly scoped improvements — starting with the processes that consume time, create friction, or make critical information difficult to find.</p>
+<div class="rule"></div><div class="focus"><strong>Areas of interest</strong><br>
+Service &amp; administrative workflows<br>RFQ &amp; quotation coordination<br>Maintenance work-order information<br>Operational documents &amp; knowledge</div>
+</aside></section></main>
+<footer><div class="inner"><span>© 2026 Indurra Solutions. All rights reserved.</span><span>indurrasolutions.com</span></div></footer>
+</body></html>
